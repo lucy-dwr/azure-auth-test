@@ -13,7 +13,7 @@ MS_CLIENT_ID=your-client-id
 MS_TENANT_ID=your-tenant-id
 ```
 
-These can be found in the Azure portal under your app registration.
+These can be found in the Azure portal under your app registration. See [docs/entra-setup.md](docs/entra-setup.md) for instructions on creating one.
 
 ## Quick start
 
