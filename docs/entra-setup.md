@@ -58,7 +58,7 @@ Navigate to:
 
 Set **Allow public client flows** to **Yes**, then save.
 
-> Skip this step if you are using a client secret or certificate instead of device code flow.
+_Skip this step if you are using a client secret or certificate instead of device code flow._
 
 ---
 
@@ -104,7 +104,27 @@ MS_CLIENT_ID=<Application client ID>
 MS_TENANT_ID=<Directory tenant ID>
 ```
 
-The script uses the **MSAL library** to obtain an access token and call Microsoft Graph.
+Python scripts commonly use the **MSAL library** to obtain an access token and call Microsoft Graph.
+
+---
+
+## 8. What happens at authentication time (device code flow)
+
+When a script using device code flow runs for the first time, the following sequence occurs:
+
+1. **The script requests a device code** from Microsoft Entra using the client ID and tenant ID.
+
+2. **The script prints instructions** to the terminal, for example:
+
+   > To sign in, use a web browser to open https://microsoft.com/devicelogin and enter the code **ABCD1234** to authenticate.
+
+3. **Open the URL in a browser** and enter the code. Sign in with your organizational account if prompted.
+
+4. **Consent or approval** — Microsoft displays the permissions the app is requesting. What happens next depends on your tenant's policy:
+   - If no admin consent is required, you can approve immediately and the script proceeds.
+   - In stricter enterprise environments, you may be asked to provide a **business justification** for why you need access. The request is then routed to an IT administrator for review. You will typically receive an email notification when it is approved or denied.
+
+5. **Once approved**, the script receives an access token and begins making API calls. Subsequent runs reuse a cached token and skip this process until the token expires.
 
 ---
 
