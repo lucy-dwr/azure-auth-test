@@ -1,5 +1,10 @@
 # Registering a Microsoft Entra application for Microsoft Graph access
 
+> [!WARNING]
+> This guide currently documents a device code flow setup for local development/testing and is not the target production security model.
+>
+> Before implementing or approving production access, review [IT Security Requirements for SharePoint Graph Access](it-auth-security-requirements.md), which defines the required controls (including app-only access patterns and scope minimization).
+
 These instructions describe how to register an application in **Microsoft Entra ID** and configure it so a script can authenticate and access resources through the **Microsoft Graph API**.
 
 Microsoft Graph provides a unified endpoint for Microsoft 365 services including SharePoint, Teams, OneDrive, Outlook, Planner, and more. Any of these can be accessed once an app registration is in place.
